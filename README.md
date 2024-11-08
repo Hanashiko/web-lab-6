@@ -5,3 +5,6 @@
 
 ## Камінь ножиці папір
 ![RockScissorsPaper](./docx/rock_scissors_paper.png)
+
+## Калькулятор 
+![Calculator](./docx/calculator.png)

@@ -8,3 +8,6 @@
 
 ## Калькулятор 
 ![Calculator](./docx/calculator.png)
+
+## Кидання кубиків
+![RollTheDice](./docx/roll_the_dice.png)

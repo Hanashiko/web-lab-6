@@ -1,6 +1,6 @@
 <?php
 
-$options = ["ножиці", "камінь", "папір"];
+$options = ["scissors", "rock", "paper"];
 
 function validate($inputParam) {
     global $options;
@@ -8,9 +8,9 @@ function validate($inputParam) {
 }
 
 function playRound($userChoice, $computerChoice) {
-    if (($userChoice == "ножиці" and $computerChoice == "папір")
-    or ($userChoice == "камінь" and $computerChoice == "ножиці")
-    or ($userChoice == "папір" and $computerChoice == "камінь")) {
+    if (($userChoice == "scissors" and $computerChoice == "paper")
+    or ($userChoice == "rock" and $computerChoice == "scissors")
+    or ($userChoice == "paper" and $computerChoice == "rock")) {
         return "user";
     } elseif ($userChoice == $computerChoice) {
         return "draw";
@@ -29,27 +29,27 @@ function playGame() {
     };
 
     for ($i=0; $i<3; $i++) {
-        $inputOption = readline("Введіть ваш варіант (камінь/ножиці/папір): ");
+        $inputOption = readline("Enter your choice (rock/scissors/paper): ");
         if (!validate($inputOption)) {
-            echo "Введіть один з наступних варіантів камінь/ножиці/папір\n";
+            echo "Please enter one of: rock/scissors/paper\n";
             continue;
         }
         $computerChoice = $randomChoice();
         $roundWinner = playRound($inputOption, $computerChoice);
-        
+
         if ($roundWinner == "user") {
-            echo "Ваш вибір - $inputOption\nВибір комп'ютера - $computerChoice\nРезультат раунду - ви перемогли\n";
+            echo "Your choice: $inputOption\nComputer's choice: $computerChoice\nRound result: you won\n";
             $userScore++;
         } elseif ($roundWinner == "draw") {
-            echo "Ваш вибір - $inputOption\nВибір комп'ютера - $computerChoice\nРезультат раунду - нічия\n";
+            echo "Your choice: $inputOption\nComputer's choice: $computerChoice\nRound result: draw\n";
             $userScore++;
             $computerScore++;
         } else {
-            echo "Ваш вибір - $inputOption\nВибір комп'ютера - $computerChoice\nРезультат раунду - комп'ютер переміг\n";
+            echo "Your choice: $inputOption\nComputer's choice: $computerChoice\nRound result: computer won\n";
             $computerScore++;
         }
     }
-    echo "Результат гри:\nВаші очки - $userScore\nОчик комп'ютера - $computerScore\nПереможець: " . (($userScore == $computerScore) ? "Нічия" : (($userScore > $computerScore) ? "Ви" : "Комп'ютер")) . "\n";
+    echo "Game result:\nYour score: $userScore\nComputer score: $computerScore\nWinner: " . (($userScore == $computerScore) ? "Draw" : (($userScore > $computerScore) ? "You" : "Computer")) . "\n";
 
 }
 playGame();

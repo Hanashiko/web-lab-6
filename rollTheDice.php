@@ -5,24 +5,24 @@ function rollDice() {
 }
 function playGame() {
     $score = 0;
-    echo "Початковий рахунок $score\n";
+    echo "Starting score: $score\n";
 
     while (1) {
-        $input = readline("Натисніть Enter, щоб зробити кидок...");
+        $input = readline("Press Enter to roll the dice...");
         $randomNumber = rollDice();
-        echo "Кидок $randomNumber. ";
+        echo "Rolled $randomNumber. ";
         if ($randomNumber == 6) {
-            echo "Суперкидок!\n";
+            echo "Super roll!\n";
             continue;
         }
         $score += $randomNumber;
-        echo "Загальний рахунок: $score\n";
-        
+        echo "Total score: $score\n";
+
         if ($score == 20) {
-            echo "Вітаю ти переміг!\n";
+            echo "Congratulations, you won!\n";
             break;
         } elseif ($score > 20) {
-            echo "Ти програв!\n";
+            echo "You lost!\n";
             break;
         }
     }
@@ -30,8 +30,6 @@ function playGame() {
 
 playGame();
 
-
-
-
-
-// функцію validate, яка була прописана в умові завдання не добавляв, з точки зору того, що в цьому завдання немає отримання конкретних даних, а введення від користувача використовується тільки як проміжний етап, без отримання якогось об'єкта, чи типу даних від користувача
+// The validate function specified in the task requirements was not added,
+// since this task does not involve receiving specific data — user input is
+// only used as an intermediate step, without receiving any object or data type from the user.

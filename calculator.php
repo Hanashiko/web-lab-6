@@ -26,9 +26,9 @@ function calculate($num1, $operator, $num2) {
 }
 
 while(1) {
-    $userInput = readline("Введіть вираз (напр. 11 - 3): ");
+    $userInput = readline("Enter expression (e.g. 11 - 3): ");
     if (!validate($userInput)) {
-        echo "Введіть в форматі: 12 * 32. Можливі оператори - +; -; *; /; **; %\n";
+        echo "Enter in format: 12 * 32. Supported operators: +; -; *; /; **; %\n";
         continue;
     }
     $splitedInput = explode(" ", $userInput);
@@ -37,5 +37,5 @@ while(1) {
     $operator = $splitedInput[1];
 
     $resultNumber = calculate($number1, $operator, $number2);
-    echo "Результат: $resultNumber \n";
+    echo "Result: $resultNumber \n";
 }
